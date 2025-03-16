@@ -45,12 +45,10 @@ namespace CustomFolder.Scripts.Ship
             _rigidbody.MovePosition(nextPosition);
         }
         
-        public void RotateToPoint(Vector3 point)
+        public void RotateToAngle(float angle, float speed)
         {
-            Vector3 direction = point - transform.position;
-            float angle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg;
-            
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, angle, 0), _rotateSpeed * Time.fixedDeltaTime);
+            Quaternion targetRotation = Quaternion.Euler(0, angle, 0);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, speed * Time.fixedDeltaTime);
         }
     }
 }

@@ -249,7 +249,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 366446eaf4340d74eb024884c0a3eafb,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.19
+      value: 3.901
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 366446eaf4340d74eb024884c0a3eafb,
         type: 3}
@@ -765,12 +765,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 559363418}
   m_SourcePrefab: {fileID: 100100000, guid: 61a347a7a9d12db4998c0700f75bbed9, type: 3}
---- !u!4 &408027015 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -3965196144615035361, guid: 366446eaf4340d74eb024884c0a3eafb,
-    type: 3}
-  m_PrefabInstance: {fileID: 290549990}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,13 +1681,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26230203494b4f2cacfd4bb24bc6dd43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enter: {fileID: 408027015}
+  _enter: {fileID: 1239895526}
   _distanceToActivateLandingTrigger: 10
   _collider: {fileID: 874805074}
   _cameraOffset: {x: -23, y: 50, z: -23}
   _cameraFollow: {fileID: 330585548}
-  _takeoffDelay: 1
+  _takeoffDelay: 2
   _landDelay: 1
+  _playerExitDelay: 1
+  _landRotationSpeed: 200
 --- !u!4 &874805071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 366446eaf4340d74eb024884c0a3eafb,
@@ -1785,7 +1781,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 874805068}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: d84b84b1bc528e349b4b243835a2ff98, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 366446eaf4340d74eb024884c0a3eafb, type: 3}
   m_Controller: {fileID: 9100000, guid: e02522a3f9fd93f43ba36a70403c274e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -2550,6 +2546,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4fe94a0f92eb3764c9974bb4078e7ae0,
     type: 3}
   m_PrefabInstance: {fileID: 1195777527}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1239895526 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6833311126390149132, guid: 366446eaf4340d74eb024884c0a3eafb,
+    type: 3}
+  m_PrefabInstance: {fileID: 290549990}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1262884465
 PrefabInstance:
@@ -3365,14 +3367,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1769560385}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0.7188099, y: 0.7442423, z: -59.052948}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 559363420}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!114 &1849413010 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18,

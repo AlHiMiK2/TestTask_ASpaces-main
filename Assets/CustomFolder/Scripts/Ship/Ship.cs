@@ -16,6 +16,8 @@ namespace CustomFolder.Scripts.Ship
         [SerializeField] private CameraFollow _cameraFollow;
         [SerializeField] private float _takeoffDelay;
         [SerializeField] private float _landDelay;
+        [SerializeField] private float _playerExitDelay;
+        [SerializeField] private float _landRotationSpeed;
 
         private ShipInput _input;
         private Player.Player _player;
@@ -49,22 +51,25 @@ namespace CustomFolder.Scripts.Ship
             _isControling = false;
             UIHandler.Instance.DisableJoysticks();
             DisableCollision();
+            
+            OnReadyLand?.Invoke();
+            yield return new WaitForSeconds(_landDelay);
+            
             _cameraFollow.SetTarget(landingTrigger.TakeoffTrigger.LeaveShipPoint);
             _cameraFollow.SetOffset(_player.CameraOffset);
             
             Vector3 targetPosition = landingTrigger.TakeoffTrigger.ShipPoint.position;
-            
+            float targetAngle = landingTrigger.TakeoffTrigger.ShipPoint.eulerAngles.y;
+
             while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
             {
                 _mover.MoveToPoint(targetPosition);
-                _mover.RotateToPoint(targetPosition - landingTrigger.TakeoffTrigger.ShipPoint.forward * 10f);
+                _mover.RotateToAngle(targetAngle, _landRotationSpeed);
                 
                 yield return new WaitForFixedUpdate();
             }
             
-            OnReadyLand?.Invoke();
-            
-            yield return new WaitForSeconds(_landDelay);
+            yield return new WaitForSeconds(_playerExitDelay);
 
             _player.transform.parent = null;
             _player.gameObject.SetActive(true);
